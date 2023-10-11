@@ -589,3 +589,218 @@ sum
 numbers = []
 (1..10).step(2) { |n| numbers << n }
 numbers
+
+a = [1, 2, 3, 4, 5, 6]
+a[1, 3]
+
+a = [1, 2, 3, 4, 5, 6]
+a.values_at(0, 2, 4)
+
+
+a = [1, 2, 3]
+a[a.size - 1]
+
+a = [1, 2, 3]
+a[-1]
+a[-2]
+a[-3]
+
+a = [1, 2, 3]
+a.last
+a.last(2)
+
+
+a = [1, 2, 3, 4, 5]
+a[1, 3] = 100
+
+a = []
+a.push(1)
+a.push(2, 3)
+
+a = [1, 2, 3, 1, 2, 3]
+a.delete(2)
+a
+
+a = [1]
+b = [2, 3]
+
+a | b
+
+a + b
+a.concat(b)
+
+require 'set'
+a = Set[1, 2, 3]
+b = Set[3, 4, 5]
+a | b
+a - b
+a & b
+
+
+e, *f = 100, 200, 300
+
+e = 100, 200, 300
+
+a, *b, c, d = 1, 2, 3
+
+a = []
+b = [2, 3]
+a.push(1)
+a.push(*b)
+
+def greet(*name)
+  "#{name.join('と')}、こんにちは！"
+end
+
+greet('田中さん')
+greet('田中さん', '鈴木さん')
+
+a = [1, 2, 3]
+[a]
+
+%W!a b c!
+
+%w(mitsu\ kitade fuji)
+
+%w(
+  mitsu 
+  kitade 
+  fuji
+)
+
+'Ruby'.chars
+
+'a b srs'.split(' ')
+
+a = Array.new(12) { |n| n % 4 + 1}
+
+fruits = %W(apple orange melon)
+fruits.each_with_index(1) { |fruit, i| puts "#{i}: #{fruit}"}
+
+fruits = %W(apple orange melon)
+
+fruits.map.with_index { |fruit, i| "#{i}: #{fruit}"}
+
+fruits.delete_if.with_index { |fruit, i| fruit.include?("a") && i.odd?}
+
+dimensions = [
+  [10, 20],
+  [30, 40],
+  [50, 60]
+]
+areas = []
+dimensions.each do |length, width|
+  areas << length * width
+end
+areas
+
+dimensions = [
+  [10, 20],
+  [30, 40],
+  [50, 60]
+]
+dimensions.each_with_index do |(length, width), i|
+  puts "length: #{length}, width: #{width}, i: #{i}"
+end
+
+(a, b), i = [[10, 20], 30]
+
+%W(1 20 300).map{ _1.rjust(3, '_') }
+
+%w(japan us italy).map.with_index { [_2, _1] }
+
+numbers = [1, 2, 3, 4]
+sum = 0
+numbers.each do |n; sum|
+  sum = 10
+  sum += n
+  puts sum
+end
+
+a = [1, 2, 3]
+a.delete(100) { 'NG' }
+
+
+numbers = %w(10 20 30 40 50)
+numbers[2..]
+
+sum = 0
+5.times { |n| sum += n }
+sum
+
+sum = 0
+5.times { sum += 1 }
+sum
+
+a = []
+10.upto(14) { |n| a << n }
+a
+
+a = []
+1.step(10, 2) { |n| a << n }
+a
+
+a = []
+while a.size < 5
+  a << 1
+end
+a
+
+a = []
+begin
+  a << 1
+end while false
+a
+
+numbers = [1, 2, 3, 4]
+sum = 0
+for n in numbers 
+  sum += n
+end
+sum
+
+numbers = [1, 2, 3, 4, 5]
+loop do
+  n = numbers.sample
+  puts n
+  break if n == 5
+end
+
+
+def functional(n)
+  n > 0 ? n * functional(n - 1) : 1
+end
+functional(5)
+
+
+ret = 
+  while true
+    break
+  end
+ret
+
+fruits = %w(apple melon orange)
+numbers = [1, 2, 3]
+fruits.each do |fruit|
+  numbers.each do |n|
+    puts "#{fruit}, #{n}"
+    break if n == 3
+  end
+end
+
+numbers = [1, 2, 3, 4, 5]
+numbers.each do |n|
+  next if n.even?
+  puts n
+end
+
+
+fruits = %w(apple melon orange)
+numbers = [1, 2, 3, 4]
+fruits.each do |fruit|
+  numbers.each do |n|
+    next if n.even?
+    puts "#{fruit}, #{n}"
+  end
+end
+
