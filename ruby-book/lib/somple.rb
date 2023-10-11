@@ -464,10 +464,128 @@ a.delete_if do |n|
 end
 a
 
+
+
+#下記の出力結果が40となる。n=4だから。
 numbers = [1, 2, 3, 4]
 sum = 0
+sum_value = 100
 numbers.each do |n|
   sum_value = n.even? ? n * 10 : n
   sum += sum_value
 end
+sum_value
+
+numbers = [1, 2, 3, 4]
+sum = 0
+numbers.each { |n| 
+  sum += n 
+}
 sum
+
+numbers = [1, 2, 3, 4, 5]
+new_numbers = []
+numbers.map { |n| new_numbers << n * 10 }
+new_numbers
+
+
+numbers = [1, 2, 3, 4, 5]
+new_numbers = numbers.map { |n| n * 10 }
+new_numbers
+
+numbers = [1, 2, 3, 4, 5, 6]
+even_numbers = numbers.select { |n| n.even? }
+even_numbers
+
+numbers = [1, 2, 3, 4, 5, 6]
+non_multiple_of_three = numbers.reject { |n| n % 3 == 0 }
+
+numbers = [1, 2, 3, 4, 5, 6]
+even_number = numbers.find { |n| n.even? }
+even_number
+
+
+numbers = [1, 2, 3, 4]
+numbers.sum
+
+numbers = [1, 2, 3, 4]
+numbers.sum { |n| n * 2 }
+
+numbers = [1, 2, 3, 4]
+numbers.sum(5)
+
+charas = ['a', 'b', 'c']
+charas.sum('-')
+
+charas = ['a', 'b', 'c']
+charas.join('-')
+
+charas = ['a', 2, 'b', 3]
+charas.join
+
+charas = ['a', 'b', 'c']
+charas.sum('>') { |c| c.upcase }
+
+
+['a', 'b', 'c'].map { |s| s.upcase }
+['a', 'b', 'c'].map(&:upcase)
+
+
+[1, 2, 3, 4, 5, 6].select { |n| n % 3 == 0 }
+
+[9, 10, 11, 12, 13].map { |n| n.to_s(16) }
+
+[1, 2, 3, 4].map do |n|
+  m = n * 4
+  m.to_s
+end
+
+
+range = 1...4
+range.include?(4)
+
+a = [1, 2, 3, 4, 5]
+a[1..3]
+
+
+def liquid?(temperature)
+  0 <= temperature && temperature < 100
+end
+
+def liquid?(temperature)
+  (1..100).include?(temperature)
+end
+
+def charge(age)
+  case age
+  when 0..5
+    0
+  when 5..12
+    300
+  when 13..18
+    600
+  else
+    1000
+  end
+end
+
+(1..5).to_a
+(1...5).to_a
+
+('a'..'e').to_a
+
+[*1..5]
+
+numbers = (1..4).to_a
+sum = 0
+numbers.each { |n| sum += n }
+sum
+
+sum = 0
+(1..4).each { |n| sum += n }
+sum
+
+
+numbers = []
+(1..10).step(2) { |n| numbers << n }
+numbers
