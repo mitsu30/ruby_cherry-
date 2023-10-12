@@ -836,3 +836,18 @@ symbol = :apple
 
 currencies = { :japan => 'yen', :us => 'dollar', :india =>  'rupee' }
 currencies = { japan: 'yen', us: 'dollar', india: 'rupee' }
+
+currencies = { :japan => 'yen', **h}
+h = { :us => 'dollar', :india =>  'rupee' }
+
+
+{ :japan => 'yen' }
+
+
+def buy_burger(menu, drink: true, potato: true)
+end
+
+puts({ foo: 1, bar: 2 })
+
+
+h = Hash.new('hello')
