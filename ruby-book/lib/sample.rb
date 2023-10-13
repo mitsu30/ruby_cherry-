@@ -851,3 +851,27 @@ puts({ foo: 1, bar: 2 })
 
 
 h = Hash.new('hello')
+h = Hash.new { 'hello' }
+
+h = Hash.new { |hash, key| hash[key] = 'hello' }
+
+def foo(*args)
+  p args
+end
+
+def foo(**args)
+  p args
+end
+
+def foo(a, b: 1, c: 1)
+  puts "#{a}, #{b}, #{c}"
+end
+
+hash = { a: 123 }
+
+hash = { 'a': 123 }
+hash = { 'ruby is fun': 123 }
+
+limit = nil
+limit ||= 10
+
