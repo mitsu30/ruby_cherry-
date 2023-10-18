@@ -915,3 +915,50 @@ text.split(/\n).grep(/クープ.?バ[ケゲ]ト/)
 <option value="ps4">プレステ4</option>
 <option value="gb">ゲームボーイ</option>
 </select>
+
+html = <<-HTML
+<select name="game_console">
+<option value="none"></option>
+<option value="wii_u" selected>Wii U</option>
+<option value="ps4">プレステ4</option>
+<option value="gb">ゲームボーイ</option>
+</select>
+HTML
+
+text = <<-TEXT
+def hello(name)
+  puts "Hello, \#{name}!"
+end
+
+hello('Alice')
+     
+hello('Bob')
+	
+hello('Carol')
+TEXT
+
+def hello(name)
+  puts "Hello, #{name}!"
+end
+
+hello('Alice')
+
+hello('Bob')
+
+hello('Carol')
+
+
+
+r = /\d{3}-\d{4}/
+
+'123-4567' = /\d{3}-\d{4}/
+
+text = '私の誕生日は1977年7月17日です。'
+m = /(\d+)年(\d+)月(\d+)日/.match
+
+m = /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/.match
+
+
+text = '私の誕生日は1977年7月17日です。'
+text =~ /(\d+)年(\d+)月(\d+)日/
+
