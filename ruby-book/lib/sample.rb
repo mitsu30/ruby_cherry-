@@ -970,3 +970,151 @@ text[/\d{3}-\d{4}/]
 text = '123-456 789-2334'
 
 text = '123,456-789'
+
+
+users = []
+users << { first_name: 'Alice', last_name: 'Ruby', age: 20 }
+users << { first_name: 'Bob', last_name: 'Python', age: 30 }
+
+users.each do |user|
+  puts "氏名: #{user[:first_name]} #{user[:last_name]}、年齢: #{user[:age]}" 
+end
+
+users = []
+users << { first_name: 'Alice', last_name: 'Ruby', age: 20 }
+users << { first_name: 'Bob', last_name: 'Python', age: 30 }
+
+def full_name(user)
+  "#{user[:first_name]} #{user[:last_name]}"
+end
+
+users.each do |user|
+  puts "氏名: #{full_name(user)}、年齢: #{user[:age]}" 
+end
+
+
+class User
+  attr_reader :first_name, :last_name, :age
+
+  def initialize(first_name, last_name, age)
+    @first_name = first_name
+    @last_name = last_name
+    @age = age
+  end
+end
+
+users = []
+users << User.new('Alice', 'Ruby', 20)
+users << User.new('Bob', 'Python', 30)
+
+def full_name(user)
+  "#{user.first_name} #{user.last_name}"
+end
+
+users.each do |user|
+  puts "氏名: #{full_name(user)}, 年齢: #{user.age}}"
+end
+
+class User
+  attr_reader :first_name, :last_name, :age
+
+  def initialize(first_name, last_name, age)
+    @first_name = first_name
+    @last_name = last_name
+    @age = age
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+end
+
+users = []
+users << User.new('Alice', 'Ruby', 20)
+users << User.new('Bob', 'Python', 30)
+
+
+users.each do |user|
+  puts "氏名: #{user.full_name}, 年齢: #{user.age}}"
+end
+
+class User
+  def initialize
+    puts 'Initialized'
+  end
+end
+
+class User
+  def initialize(name, age)
+    puts "#{name} #{age}"
+  end
+end
+
+class User
+  def initialize(name)
+    # @name = name
+  end
+  
+  def hello
+    "Hello, I am #{@name}"
+  end
+end
+
+user = User.new("Alice")
+user.hello
+
+class User
+  def initialize(name)
+    @name = name
+  end
+
+  # @nameを外部から参照するためのメソッド
+  def name
+    @name
+  end
+  
+  # @nameを外部から変更するためのメソッド
+  def name=(value)
+    @name = value
+  end
+end
+
+user = User.new("Alice")
+user.name = 'Bob'
+user.name
+
+class User
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  # nameメソッドやname=メソッドを明示的に定義する必要がない。
+
+end
+
+user = User.new("Alice")
+user.name = 'Bob'
+user.name
+
+
+class User
+  def initialize(name)
+    @name = name
+  end
+  
+  def self.create_users(names)
+    names.map do |name|
+      User.new(name)
+    end
+  end
+
+  # こちらはインスタンスメソッド
+  def hello
+    "Hello, I am #{@name}"
+  end
+end
+
+user = User.new("Alice")
+user.hello
