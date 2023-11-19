@@ -1118,3 +1118,199 @@ end
 
 user = User.new("Alice")
 user.hello
+
+
+class User
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def hello
+    #selfなしでnameメソッドを呼ぶ
+    "Hello, I am #{name}."
+  end
+
+  def hi
+    #selfつきでnameメソッドを呼ぶ
+    "Hi, I am #{self.name}"
+  end
+
+  def my_name
+    #直接インスタンス変数の@nameにアクセスする
+    "My name is #{@name}."
+  end
+end
+
+user = User.new('Alice')
+user.hello
+user.hi
+user.my_name
+
+class Foo
+  puts "#{self}"
+
+  def self.bar
+    puts "#{self}"
+  end
+
+  def baz
+    puts "#{self}"
+  end
+end
+
+class User
+
+end
+
+
+
+
+class Foo
+  3.times do
+    puts 'hello'
+  end
+end
+
+
+class DVD < Product
+
+end
+
+class Product
+  attr_reader :name, :price
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+end
+
+class DVD < Product
+  attr_reader :running_time
+
+  def initialize(name, price, running_time)
+    @name = name
+    @price = price
+    @running_time = running_time
+  end
+end
+
+class DVD < Product
+  attr_reader :running_time
+
+  def initialize(name, price, running_time)
+    super(name, price)
+    @running_time = running_time
+  end
+end
+
+class DVD < Product
+  def initialize(name, price, running_time)
+    super(name, price)
+  end
+end
+
+class DVD < Product
+
+end
+
+
+class Product
+  attr_reader :name, :price
+
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+
+  def to_s
+    "name: #{name}, price: #{price}"
+  end
+end
+
+
+class DVD < Product
+  attr_reader :running_time
+
+  def initialize(name, price, running_time)
+    super(name, price)
+    @running_time = running_time
+  end
+
+  def to_s
+    def to_s
+      "name: #{name}, price: #{price}, running_time #{running_time}"
+    end
+  end
+end
+
+class DVD < Product
+  attr_reader :running_time
+
+  def initialize(name, price, running_time)
+    super(name, price)
+    @running_time = running_time
+  end
+
+  def to_s
+    def to_s
+      "#{super}, running_time #{running_time}"
+    end
+  end
+end
+
+
+class Foo
+  def self.hello
+    'hello'
+  end
+end
+
+class Bar < Foo
+end
+
+class User
+  def hello
+    "Hello, I am #{name}."
+  end
+
+  private
+
+  def name
+    'Alice'
+  end
+end
+
+class Product
+  def to_s
+    #nameは常に"A great movieになるとは限らない""
+    "name: #{name}"
+  end
+
+  private
+
+  def name
+    'A great movie'
+  end
+end
+
+class DVD < Product
+  private
+  
+  def name
+    'An awesome film'
+  end
+end
+
+
+puts 'Starts.'
+
+begin
+  1 + '10'
+rescue
+  puts '例外が発生したが、このまま続行する'
+end
+
+puts 'End.'
